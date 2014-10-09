@@ -26,15 +26,19 @@ ts = pd.Series(dataValues, index=localDateTimes)
 
 fig, axes = plt.subplots(nrows=2, ncols=2)
 
+#time series plot
 ts.plot(ax=axes[0,0])
 axes[0,0].set_title('Temperature at SiteID=2')
 
+#weekly stats plot
 ts.resample('W', how=['mean', np.min, np.max]).plot(ax=axes[0,1]) 
 axes[0,1].set_title('Weekly Resample')
 
+#montly stats plot
 ts.resample('M', how=['mean', np.min, np.max]).plot(ax=axes[1,0]) 
 axes[1,0].set_title('Monthly Resample')
 
+#montly boxplot
 df = pd.DataFrame(ts, columns=['tmp'])
 df['mon'] = df.index.month
 df.boxplot(column = 'tmp', by='mon', ax=axes[1,1]) 
@@ -43,5 +47,5 @@ fig = axes[1][1].get_figure()
 fig.suptitle('')
 
 plt.tight_layout()
-plt.savefig('Class_14_InClassDemoPandas.png')
+plt.savefig('Class14_InClassDemoPandas.png')
 plt.show()

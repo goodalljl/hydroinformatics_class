@@ -95,4 +95,4 @@ font = {'family' : 'sans-serif', #changed from 'normal' to remove warning
 'size' : 12}
 rc('font', **font)
 
-fig.savefig('plot1.png')
+fig.savefig('Class13_InClassDemo_Clean_Subplots.png')

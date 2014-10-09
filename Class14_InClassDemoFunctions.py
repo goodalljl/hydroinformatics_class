@@ -130,7 +130,7 @@ if __name__ == '__main__':    #code to execute if called from command-line
     ax2.plot(dateTimes, dataValues, color='black', linestyle='solid', markersize=0)
     
     fig.tight_layout()
-    fig.savefig("plot1.png")
+    fig.savefig("Class14_InClassDemoFunctions.png")
 
 
 

@@ -113,7 +113,7 @@ class TimeSeries():
         ax.set_title(self.SiteName)
 
         fig.tight_layout()
-        fig.show()
+        fig.savefig('Class14_InClassDemoClass.png')
 
 if __name__ == '__main__':    #code to execute if called from command-line
 
