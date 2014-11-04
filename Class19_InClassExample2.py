@@ -6,19 +6,20 @@ from pandas import Series
 NWIS = Client("http://river.sdsc.edu/wateroneflow/NWIS/UnitValues.asmx?WSDL").service
 
 #Call the GetValuesObject method (http://river.sdsc.edu/wateroneflow/NWIS/UnitValues.asmx?op=GetValuesObject)
-response = NWIS.GetValuesObject("USGS:10109000", "USGS:00060", "2014-10-31", "2014-11-4")
+response = NWIS.GetValuesObject("USGS:10109000", "USGS:00060", "2014-10-31", "2014-11-04")
 #(If you get an error message saying ‘Error connecting to USGS’, double check your Internet connection and the input parameters above.)
 
 #create a Pandas Series object from the response
 a = []
 b = []
 values = response.timeSeries.values.value
-for v in values: a.append(v.value)
-for v in values: b.append(v._dateTime)
+for v in values: 
+    a.append(float(v.value))
+    b.append(v._dateTime)
 ts = Series(a, index=b)
 
 
 #print the site’s minimum value and datetime of occurrence to the console
 print "Minimum streamflow was %s cfs on %s"%(ts.min(), ts.idxmin())
-#(this should produce the following output: Min streamflow was 101 cfs on 2014-11-01 10:30:00.)
+#(this should produce the following output: Minimum streamflow was 81.0 cfs on 2014-11-03 16:30:00)
 
