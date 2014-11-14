@@ -23,11 +23,11 @@ Last modified: November 12, 2014.
 #-------------------------------------------------------------------------------
 #USER INPUT: 
 
-#upstream point
+#downstream point
 lonPt1 = -78.623751
 latPt1 = 38.479505
 
-#downstream point
+#upstream point
 lonPt2 = -78.635252
 latPt2 = 38.409105
 
